@@ -1,6 +1,6 @@
 int [] arrayToBeSorted={1, 4, 6, 8, 0, 9};
 void setup() {
-  int [] result =mergeSort(arrayToBeSorted,0,arrayToBeSorted.length-1);
+  int [] result =mergeSort(arrayToBeSorted, 0, arrayToBeSorted.length-1);
   println(result);
   //merge(arrayToBeSorted, 0, 3, arrayToBeSorted.length-1);
 }
@@ -11,15 +11,12 @@ int [] merge(int [] array, int x, int y, int z) {
   int secondHalf=z-y;
   int [] firstArray= new int[firstHalf];
   int [] secondArray=new int[secondHalf];
-    int [] sortedArray =new int[firstHalf+secondHalf];
+  int [] sortedArray =new int[firstHalf+secondHalf];
   for (int i=0; i<firstHalf; i++) {
     firstArray[i]=array[x+i];
-    
   }
-  println(firstArray) ;
   for (int j=0; j<secondHalf; j++) {
     secondArray[j]=array[y+1+j];
-    
   }
   int i=0;
   int j=0;
@@ -35,9 +32,6 @@ int [] merge(int [] array, int x, int y, int z) {
       k++;
     }
   }
-  i=0;
-  k=0;
-  j=0;
   while (i<firstHalf) {
     sortedArray[k]=firstArray[i];
     i++;
@@ -48,7 +42,7 @@ int [] merge(int [] array, int x, int y, int z) {
     j++;
     k++;
   }
-return sortedArray;
+  return sortedArray;
 }
 int [] mergeSort(int [] array, int x, int y) {
   int [] result=new int [y];
