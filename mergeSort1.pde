@@ -2,7 +2,6 @@ int [] arrayToBeSorted={1, 4, 6, 8, 0, 9};
 void setup() {
   int [] result =mergeSort(arrayToBeSorted, 0, arrayToBeSorted.length-1);
   println(result);
-  //merge(arrayToBeSorted, 0, 3, arrayToBeSorted.length-1);
 }
 void draw() {
 }
