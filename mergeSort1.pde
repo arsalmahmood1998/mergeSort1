@@ -5,18 +5,22 @@ void setup() {
 }
 void draw() {
 }
-int [] merge(int [] array, int x, int y, int z) {
-  int firstHalf=y-x+1;
-  int secondHalf=z-y;
+int [] merge(int [] array, int startPoint, int midPoint, int endPoint) {
+  int firstHalf=midPoint-startPoint+1;
+  int secondHalf=endPoint-midPoint;
   int [] firstArray= new int[firstHalf];
   int [] secondArray=new int[secondHalf];
   int [] sortedArray =new int[firstHalf+secondHalf];
   for (int i=0; i<firstHalf; i++) {
-    firstArray[i]=array[x+i];
+    firstArray[i]=array[startPoint+i+1];
+    
   }
+  
   for (int j=0; j<secondHalf; j++) {
-    secondArray[j]=array[y+1+j];
+    secondArray[j]=array[midPoint+j];
+    
   }
+  
   int i=0;
   int j=0;
   int k=0;
@@ -43,13 +47,13 @@ int [] merge(int [] array, int x, int y, int z) {
   }
   return sortedArray;
 }
-int [] mergeSort(int [] array, int x, int y) {
-  int [] result=new int [y];
-  if (x<y) {
-    int m=x+(y-x)/2;
-    mergeSort(array, x, m);
-    mergeSort(array, m+1, y);
-    result= merge(array, x, m, y);
+int [] mergeSort(int [] array, int startPoint, int endpoint) {
+  int [] result=new int [endpoint];
+  if (startPoint<endpoint) {
+    int midPoint=startPoint+(startPoint-endpoint)/2;
+    mergeSort(array, startPoint, midPoint);
+    mergeSort(array, midPoint+1, endpoint);
+    result= merge(array, startPoint, midPoint, endpoint);
   }
   return result;
 }
