@@ -11,15 +11,14 @@ int [] merge(int [] array, int startPoint, int midPoint, int endPoint) {
   int [] firstArray= new int[firstHalf];
   int [] secondArray=new int[secondHalf];
   int [] sortedArray =new int[firstHalf+secondHalf];
-  for (int i=0; i<firstHalf; i++) {
-    firstArray[i]=array[startPoint+i+1];
-    
+  for (int i=0; i<firstHalf; i++) { 
+    firstArray[i]=array[startPoint+i+1]; 
   }
-  
+  println("firstArray",firstArray);
   for (int j=0; j<secondHalf; j++) {
     secondArray[j]=array[midPoint+j];
-    
   }
+  println("secondArray",secondArray);
   
   int i=0;
   int j=0;
@@ -50,7 +49,8 @@ int [] merge(int [] array, int startPoint, int midPoint, int endPoint) {
 int [] mergeSort(int [] array, int startPoint, int endpoint) {
   int [] result=new int [endpoint];
   if (startPoint<endpoint) {
-    int midPoint=startPoint+(startPoint-endpoint)/2;
+    int midPoint=startPoint+(endpoint-startPoint)/2;
+    println(midPoint);
     mergeSort(array, startPoint, midPoint);
     mergeSort(array, midPoint+1, endpoint);
     result= merge(array, startPoint, midPoint, endpoint);
